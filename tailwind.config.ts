@@ -55,7 +55,33 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+      keyframes: {
+        "album-rotation": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "pulse-subtle": {
+          "0%, 100%": { 
+            opacity: "1",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            opacity: "0.95",
+            transform: "scale(1.02)" 
+          },
+        },
+        "progress-fill": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+      },
+      animation: {
+        "album-rotation": "album-rotation 12s linear infinite",
+        "album-rotation-slow": "album-rotation 24s linear infinite",
+        "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
+        "progress-fill": "progress-fill 1s linear",
+      },
   	}
   },
   plugins: [require("tailwindcss-animate")],
